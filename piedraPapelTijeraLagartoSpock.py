@@ -60,7 +60,7 @@ def reglas (a,b):
             return 1
         else :#b == "🦎":
             return -1       
-    elif a == "🖖":
+    else: # a == "🖖":
         if b == "✂️":
             return 1
         elif b == "🗿":

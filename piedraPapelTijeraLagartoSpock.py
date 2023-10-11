@@ -21,6 +21,7 @@ Spock vaporiza piedra
 Piedra aplasta tijeras"""
 
 movimientos = ["🗿","📄","✂️","🦎","🖖" ]
+movimientosLetra =["r","p","t","l","s"] 
 def reglas (a,b):
     if a==b:
         return 0
@@ -85,10 +86,37 @@ def puntaje (entrada):
     if(resultado==0):
         return "Tie"
     elif resultado <0:
-        return f"Player 2 {resultado}"
-    else: return f"Player 1 {resultado}"
+        return f"Ganador Player 2"
+    else: return f"Ganador Player 1"
 
-entrada= [("🖖","🗿"),("🗿","✂️"), ("✂️","🗿"), ("📄","🗿")]#
+def inicioJuego():
+    inp = ""
+    while inp == "" or inp!= "no" :
+        while True:
+            print("""Los posibles movimientos son:  
+            >p para PAPEL "📄" >t para TIJERAS  >s para SPOCK "🖖" >r para PIEDRA (rock) "🗿" >l para Lagarto "🦎" 
+            """)
+            userInput= input(f" Ingrese movimiento player 1: ")
+            if userInput in movimientosLetra:
+                userInput = movimientos[movimientosLetra.index(userInput)]
+                break 
+        while True:
+            print("""Los posibles movimientos son:  
+            >p para PAPEL "📄" >t para TIJERAS  >s para SPOCK "🖖" >r para PIEDRA (rock) "🗿" >l para Lagarto "🦎" 
+            """)
+            user2Input= input(f" Ingrese movimiento player: 2: ")
+            if user2Input in movimientosLetra:
+                user2Input = movimientos[movimientosLetra.index(user2Input)]
+                break 
+        
+        entrada.append ((userInput,user2Input))
+        print(entrada)
+        print("Desea continuar?")
+        inp = input("enter para continuar, no para salir")
+
+entrada= []#("🖖","🗿"),("🗿","✂️"), ("✂️","🗿"), ("📄","🗿")
+
+        
 
 """ # testing
 for i in movimientos: 
@@ -100,7 +128,7 @@ for i in movimientos:
         print (f"Resultado: ({resultado})")
     entrada.clear()
 """
-
+inicioJuego()
 print(f"Movimientos:  {entrada}")
 resultado = puntaje(entrada)
 print (f"Resultado: {resultado}")

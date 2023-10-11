@@ -10,15 +10,19 @@ import math
 def esPar(num):
     return "es par" if num%2==0 else "es impar"
 def fib (num):
-    fibonacci = [0,1]
-    i = 1 
-    while i < 1000:
-        fibonacci.append(fibonacci[i]+fibonacci[i-1])
-        i+=1
-    try:
-        fibonacci.index(num)
+    previous =0 
+    actual = 1
+    if previous== num:
+       return "es un numero de fibonacci" 
+    
+    while actual< num:
+        aux = actual
+        actual+= previous
+        previous=aux
+   
+    if actual== num:
         return "es un numero de fibonacci"
-    except: # Si viene por acaa es que no existe el num dentro del arreglo
+    else: # Si viene por acaa es que no existe el num dentro del arreglo
         return "no es un numero de fibonacci" 
  
 
@@ -33,6 +37,6 @@ def esPrimo(num):
     else :     return "no es primo"
 
 
-for i in range(2,3500):
+for i in range(0,1000):
     print(f" el numero {i}: {esPar(i)}, {esPrimo(i)} y {fib(i)}")
 

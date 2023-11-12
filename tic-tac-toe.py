@@ -127,7 +127,7 @@ jugar = True
 while jugar:
     tablero =[valorPorDefecto,valorPorDefecto,valorPorDefecto,valorPorDefecto,valorPorDefecto,valorPorDefecto,valorPorDefecto,valorPorDefecto,valorPorDefecto]
     play()
-    continuar = input ("quiere seguir jugando: ingrese n o no para salir, y cualquier otra tecla para continuar jugando: ")
+    continuar = input ("quiere seguir jugando? Ingrese n o no para salir, y cualquier otra tecla para continuar jugando: ")
     print(continuar)
     continuar = continuar.lower()
     if continuar.startswith("n"):
